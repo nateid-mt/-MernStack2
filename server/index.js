@@ -8,6 +8,7 @@ import dotenv from 'dotenv';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import {register} from "./controllers/auth.js";
 
 
 //Configurations
@@ -18,7 +19,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(helmet);
+app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy: "cross-origin"}));
 app.use(morgan("common"));
 app.use(bodyParser.json({ limit: "30mb", extended: true}));
